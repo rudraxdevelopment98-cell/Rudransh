@@ -3,19 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/ui/Reveal";
-import { articles, getArticle } from "@/lib/data";
+import { getArticleBySlug } from "@/lib/queries";
 import { formatDate } from "@/lib/format";
 
-export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
-}
+export const dynamic = "force-dynamic";
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Metadata {
-  const article = getArticle(params.slug);
+}): Promise<Metadata> {
+  const article = await getArticleBySlug(params.slug);
   if (!article) return { title: "Article" };
   return { title: article.title, description: article.excerpt };
 }
@@ -27,12 +25,12 @@ const GOAL_LABEL: Record<string, string> = {
   immunity: "Immunity",
 };
 
-export default function ArticlePage({
+export default async function ArticlePage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const article = getArticle(params.slug);
+  const article = await getArticleBySlug(params.slug);
   if (!article) notFound();
 
   return (

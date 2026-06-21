@@ -8,8 +8,12 @@ import {
   useMemo,
   useState,
 } from "react";
-import type { CartLine } from "@/lib/types";
-import { products } from "@/lib/data";
+import type { CartLine, Product } from "@/lib/types";
+
+/** Minimal shape needed to add something to the cart. */
+type AddInput = Pick<Product, "slug" | "name" | "price" | "currency"> & {
+  image: string;
+};
 
 interface CartContextValue {
   lines: CartLine[];
@@ -18,9 +22,10 @@ interface CartContextValue {
   isOpen: boolean;
   open: () => void;
   close: () => void;
-  add: (productSlug: string, opts?: { subscription?: boolean }) => void;
+  add: (product: AddInput, opts?: { subscription?: boolean }) => void;
   remove: (productSlug: string) => void;
   setQuantity: (productSlug: string, quantity: number) => void;
+  clear: () => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -30,7 +35,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  // hydrate from localStorage
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -48,19 +52,27 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [lines]);
 
-  const add: CartContextValue["add"] = useCallback((productSlug, opts) => {
+  const add: CartContextValue["add"] = useCallback((product, opts) => {
     setLines((prev) => {
-      const existing = prev.find((l) => l.productSlug === productSlug);
+      const existing = prev.find((l) => l.productSlug === product.slug);
       if (existing) {
         return prev.map((l) =>
-          l.productSlug === productSlug
+          l.productSlug === product.slug
             ? { ...l, quantity: l.quantity + 1 }
             : l
         );
       }
       return [
         ...prev,
-        { productSlug, quantity: 1, subscription: opts?.subscription },
+        {
+          productSlug: product.slug,
+          name: product.name,
+          price: product.price,
+          currency: product.currency,
+          image: product.image,
+          quantity: 1,
+          subscription: opts?.subscription,
+        },
       ];
     });
     setIsOpen(true);
@@ -83,13 +95,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
+  const clear = useCallback(() => setLines([]), []);
+
   const { count, subtotal } = useMemo(() => {
     let c = 0;
     let s = 0;
     for (const line of lines) {
-      const product = products.find((p) => p.slug === line.productSlug);
       c += line.quantity;
-      if (product) s += product.price * line.quantity;
+      s += line.price * line.quantity;
     }
     return { count: c, subtotal: s };
   }, [lines]);
@@ -104,6 +117,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     add,
     remove,
     setQuantity,
+    clear,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

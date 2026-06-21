@@ -26,6 +26,11 @@
     background-color: theme("colors.gold");
     color: theme("colors.forest.deep");
   }
+
+  :focus-visible {
+    outline: 1px solid theme("colors.gold");
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
@@ -51,8 +56,13 @@
     @apply btn bg-forest-deep text-bone;
     border: 1px solid theme("colors.forest.deep");
   }
-  .btn-primary:hover {
+  .btn-primary:hover:not(:disabled) {
     border-color: theme("colors.gold");
+    box-shadow: 0 10px 30px -10px theme("colors.forest.deep" / 50%);
+    transform: translateY(-1px);
+  }
+  .btn-primary:disabled {
+    @apply opacity-40;
   }
 
   .btn-secondary {
@@ -62,6 +72,7 @@
   .btn-secondary:hover {
     border-color: theme("colors.gold");
     color: theme("colors.umber");
+    transform: translateY(-1px);
   }
 
   /* Hairline rule */

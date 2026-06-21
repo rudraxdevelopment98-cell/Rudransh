@@ -6,10 +6,15 @@ import { ProductCard } from "@/components/commerce/ProductCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
-import { goals, products, articles, getProduct } from "@/lib/data";
+import {
+  getGoals,
+  getProducts,
+  getArticles,
+  getFeaturedProduct,
+} from "@/lib/queries";
 import { formatPrice, formatDate } from "@/lib/format";
 
-const featured = getProduct("ashwagandha")!;
+export const dynamic = "force-dynamic";
 
 const TRUST = [
   { title: "Single-origin", detail: "Traceable herbs, sourced with care." },
@@ -18,7 +23,14 @@ const TRUST = [
   { title: "Carbon-conscious", detail: "Considered packaging and shipping." },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [goals, products, articles, featured] = await Promise.all([
+    getGoals(),
+    getProducts(),
+    getArticles(),
+    getFeaturedProduct(),
+  ]);
+
   return (
     <>
       <Hero />
@@ -77,6 +89,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured product — cinematic single showcase */}
+      {featured && (
       <section className="section bg-forest-deep text-bone">
         <div className="container-luxe grid items-center gap-16 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
@@ -111,6 +124,7 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+      )}
 
       {/* Subscription teaser */}
       <section className="section bg-warmwhite">

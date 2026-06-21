@@ -15,7 +15,7 @@ export function ProductCard({ product }: { product: Product }) {
   const [primary, secondary] = product.images;
   return (
     <Link href={`/products/${product.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-sharp bg-sand">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-sharp bg-sand shadow-sm transition-shadow duration-500 ease-editorial group-hover:shadow-xl">
         <Image
           src={primary}
           alt={product.name}

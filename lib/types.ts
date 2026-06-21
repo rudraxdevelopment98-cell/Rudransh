@@ -64,6 +64,10 @@ export interface SubscriptionTier {
 
 export interface CartLine {
   productSlug: string;
+  name: string;
+  price: number; // snapshot at add-time; re-validated server-side at checkout
+  currency: string;
+  image: string;
   quantity: number;
   subscription?: boolean;
 }

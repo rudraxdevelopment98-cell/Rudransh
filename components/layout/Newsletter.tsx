@@ -1,20 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { subscribeEmail } from "@/app/actions/newsletter";
 
-/** Footer newsletter capture. Wire to Klaviyo in phase 2 (KLAVIYO_PUBLIC_KEY). */
+/** Footer newsletter capture — stores subscribers in our own database. */
 export function Newsletter() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
 
   return (
     <form
       className="mt-8"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
         if (!email) return;
-        setDone(true);
-        setEmail("");
+        setError("");
+        const res = await subscribeEmail(email);
+        if (res.ok) {
+          setDone(true);
+          setEmail("");
+        } else {
+          setError(res.error ?? "Something went wrong.");
+        }
       }}
     >
       <label className="text-caption uppercase tracking-label text-gold">
@@ -42,6 +50,7 @@ export function Newsletter() {
           </button>
         </div>
       )}
+      {error && <p className="mt-2 text-sm text-clay">{error}</p>}
     </form>
   );
 }

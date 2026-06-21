@@ -5,34 +5,39 @@ import { ProductCard } from "@/components/commerce/ProductCard";
 import { RitualCard } from "@/components/commerce/RitualCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
-import { goals, getGoal, getProduct, getRitual } from "@/lib/data";
+import {
+  getGoalBySlug,
+  getProductBySlug,
+  getRitualBySlug,
+} from "@/lib/queries";
 
-export function generateStaticParams() {
-  return goals.map((g) => ({ goal: g.slug }));
-}
+export const dynamic = "force-dynamic";
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { goal: string };
-}): Metadata {
-  const goal = getGoal(params.goal);
+}): Promise<Metadata> {
+  const goal = await getGoalBySlug(params.goal);
   if (!goal) return { title: "Goal" };
   return { title: goal.name, description: goal.intro };
 }
 
-export default function GoalPage({
+export default async function GoalPage({
   params,
 }: {
   params: { goal: string };
 }) {
-  const goal = getGoal(params.goal);
+  const goal = await getGoalBySlug(params.goal);
   if (!goal) notFound();
 
-  const matched = goal.matchedProductSlugs
-    .map((slug) => getProduct(slug))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p));
-  const ritual = getRitual(goal.recommendedRitualSlug);
+  const matchedResults = await Promise.all(
+    goal.matchedProductSlugs.map((slug) => getProductBySlug(slug))
+  );
+  const matched = matchedResults.filter(
+    (p): p is NonNullable<typeof p> => Boolean(p)
+  );
+  const ritual = await getRitualBySlug(goal.recommendedRitualSlug);
 
   return (
     <>

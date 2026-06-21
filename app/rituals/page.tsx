@@ -3,13 +3,15 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/commerce/ProductCard";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
-import { rituals, getProduct } from "@/lib/data";
+import { getRituals, getProducts } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: "Rituals",
   description:
     "Guided daily routines that bundle herbs by goal — wellness as a practice, not a purchase.",
 };
+
+export const dynamic = "force-dynamic";
 
 const GOAL_LABEL: Record<string, string> = {
   skin: "Skin",
@@ -18,7 +20,13 @@ const GOAL_LABEL: Record<string, string> = {
   immunity: "Immunity",
 };
 
-export default function RitualsPage() {
+export default async function RitualsPage() {
+  const [rituals, products] = await Promise.all([
+    getRituals(),
+    getProducts(),
+  ]);
+  const bySlug = new Map(products.map((p) => [p.slug, p]));
+
   return (
     <div className="section pt-40 bg-warmwhite">
       <div className="container-luxe">
@@ -31,7 +39,7 @@ export default function RitualsPage() {
         <div className="mt-20 space-y-24">
           {rituals.map((ritual) => {
             const items = ritual.productSlugs
-              .map((slug) => getProduct(slug))
+              .map((slug) => bySlug.get(slug))
               .filter((p): p is NonNullable<typeof p> => Boolean(p));
             return (
               <Reveal as="section" key={ritual.slug}>

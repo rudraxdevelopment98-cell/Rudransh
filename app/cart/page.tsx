@@ -2,27 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
-import { products } from "@/lib/data";
 import { formatPrice } from "@/lib/format";
-import { isShopifyConfigured } from "@/lib/shopify";
 
 export default function CartPage() {
   const { lines, subtotal, setQuantity, remove } = useCart();
-  const [notice, setNotice] = useState("");
-
-  const onCheckout = () => {
-    // When the Storefront API is wired, this creates a cart and redirects to
-    // Shopify's hosted checkout (cart.checkoutUrl). Until then, inform the user.
-    if (!isShopifyConfigured) {
-      setNotice(
-        "Checkout connects to Shopify once SHOPIFY_STOREFRONT_ACCESS_TOKEN is configured."
-      );
-      return;
-    }
-    // TODO: createCart → redirect to checkoutUrl
-  };
 
   return (
     <div className="section pt-40 bg-warmwhite min-h-screen">
@@ -41,16 +25,12 @@ export default function CartPage() {
             {/* lines */}
             <ul className="divide-y divide-ink/10 border-t border-ink/10">
               {lines.map((line) => {
-                const product = products.find(
-                  (p) => p.slug === line.productSlug
-                );
-                if (!product) return null;
                 return (
                   <li key={line.productSlug} className="flex gap-6 py-8">
                     <div className="relative h-36 w-28 shrink-0 overflow-hidden rounded-sharp bg-sand">
                       <Image
-                        src={product.images[0]}
-                        alt={product.name}
+                        src={line.image}
+                        alt={line.name}
                         fill
                         sizes="112px"
                         className="object-cover"
@@ -59,15 +39,15 @@ export default function CartPage() {
                     <div className="flex flex-1 flex-col">
                       <div className="flex justify-between gap-4">
                         <Link
-                          href={`/products/${product.slug}`}
+                          href={`/products/${line.productSlug}`}
                           className="font-display text-2xl text-forest-deep hover:text-clay"
                         >
-                          {product.name}
+                          {line.name}
                         </Link>
                         <span className="font-display text-xl">
                           {formatPrice(
-                            product.price * line.quantity,
-                            product.currency
+                            line.price * line.quantity,
+                            line.currency
                           )}
                         </span>
                       </div>
@@ -76,9 +56,6 @@ export default function CartPage() {
                           Subscription · monthly
                         </span>
                       )}
-                      <p className="mt-2 max-w-md text-sm text-ink/60">
-                        {product.shortDescription}
-                      </p>
                       <div className="mt-auto flex items-center gap-6 pt-4">
                         <div className="flex items-center border border-ink/20">
                           <button
@@ -129,15 +106,11 @@ export default function CartPage() {
                 <span>Total</span>
                 <span>{formatPrice(subtotal)}</span>
               </div>
-              <button onClick={onCheckout} className="btn-primary mt-8 w-full">
+              <Link href="/checkout" className="btn-primary mt-8 w-full">
                 Checkout
-              </button>
-              {notice && (
-                <p className="mt-4 text-xs text-clay">{notice}</p>
-              )}
+              </Link>
               <p className="mt-4 text-xs text-ink/50">
-                Secure checkout powered by Shopify. Taxes &amp; shipping
-                calculated at the next step.
+                Cash on delivery. Shipping calculated at the next step.
               </p>
             </aside>
           </div>

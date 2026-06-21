@@ -7,23 +7,20 @@ import { AddToCart } from "@/components/commerce/AddToCart";
 import { RitualCard } from "@/components/commerce/RitualCard";
 import { Reveal } from "@/components/ui/Reveal";
 import {
-  products,
-  getProduct,
-  getRitual,
-  getGoal,
-} from "@/lib/data";
+  getProductBySlug,
+  getRitualBySlug,
+  getGoalBySlug,
+} from "@/lib/queries";
 import { formatPrice } from "@/lib/format";
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
-}
+export const dynamic = "force-dynamic";
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Metadata {
-  const product = getProduct(params.slug);
+}): Promise<Metadata> {
+  const product = await getProductBySlug(params.slug);
   if (!product) return { title: "Product" };
   return {
     title: product.name,
@@ -38,17 +35,21 @@ const GOAL_LABEL: Record<string, string> = {
   immunity: "Immunity",
 };
 
-export default function ProductPage({
+export default async function ProductPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const product = getProduct(params.slug);
+  const product = await getProductBySlug(params.slug);
   if (!product) notFound();
 
   // Recommend the ritual tied to the product's first goal.
-  const goal = getGoal(product.goalTags[0]);
-  const ritual = goal ? getRitual(goal.recommendedRitualSlug) : undefined;
+  const goal = product.goalTags[0]
+    ? await getGoalBySlug(product.goalTags[0])
+    : null;
+  const ritual = goal
+    ? await getRitualBySlug(goal.recommendedRitualSlug)
+    : null;
 
   return (
     <div className="pt-20">

@@ -1,0 +1,117 @@
+// Rudransh Wellness — owned data model. SQLite for zero-dependency local dev;
+// swap `provider` to "postgresql" and the DATABASE_URL to scale later.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id               String      @id @default(cuid())
+  slug             String      @unique
+  name             String
+  shortDescription String
+  price            Int // minor-unit-free integer, e.g. 1800 = £18.00
+  currency         String      @default("GBP")
+  images           String // JSON string[]
+  goalTags         String // JSON string[]
+  benefits         String // JSON string[]
+  usage            String
+  warnings         String
+  dailyRoutine     String // JSON string[]
+  ingredients      String // JSON string[]
+  subscribable     Boolean     @default(false)
+  featured         Boolean     @default(false)
+  stock            Int         @default(100)
+  active           Boolean     @default(true)
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  orderItems       OrderItem[]
+}
+
+model Goal {
+  id                    String @id @default(cuid())
+  slug                  String @unique
+  name                  String
+  tagline               String
+  intro                 String
+  heroImage             String
+  herbs                 String // JSON string[]
+  matchedProductSlugs   String // JSON string[]
+  recommendedRitualSlug String
+  sortOrder             Int    @default(0)
+}
+
+model Ritual {
+  id           String @id @default(cuid())
+  slug         String @unique
+  name         String
+  goal         String
+  timeOfDay    String
+  intro        String
+  steps        String // JSON { title, detail }[]
+  productSlugs String // JSON string[]
+}
+
+model Article {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        String
+  excerpt      String
+  hero         String
+  body         String // JSON string[]
+  relatedGoals String // JSON string[]
+  publishedAt  DateTime
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  email         String
+  customerName  String
+  phone         String
+  address1      String
+  address2      String?
+  city          String
+  postcode      String
+  country       String
+  notes         String?
+  subtotal      Int
+  shipping      Int         @default(0)
+  total         Int
+  currency      String      @default("GBP")
+  paymentMethod String      @default("cod") // cash on delivery
+  status        String      @default("pending") // pending | confirmed | shipped | delivered | cancelled
+  items         OrderItem[]
+  createdAt     DateTime    @default(now())
+}
+
+model OrderItem {
+  id           String   @id @default(cuid())
+  orderId      String
+  order        Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId    String?
+  product      Product? @relation(fields: [productId], references: [id])
+  productSlug  String
+  productName  String
+  unitPrice    Int
+  quantity     Int
+  subscription Boolean  @default(false)
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}

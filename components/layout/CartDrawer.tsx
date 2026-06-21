@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCart } from "@/components/cart/CartProvider";
-import { products } from "@/lib/data";
 import { formatPrice } from "@/lib/format";
 import { EASE } from "@/lib/motion";
 
@@ -49,16 +48,12 @@ export function CartDrawer() {
               ) : (
                 <ul className="divide-y divide-ink/10">
                   {lines.map((line) => {
-                    const product = products.find(
-                      (p) => p.slug === line.productSlug
-                    );
-                    if (!product) return null;
                     return (
                       <li key={line.productSlug} className="flex gap-4 py-6">
                         <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-sharp bg-sand">
                           <Image
-                            src={product.images[0]}
-                            alt={product.name}
+                            src={line.image}
+                            alt={line.name}
                             fill
                             sizes="80px"
                             className="object-cover"
@@ -67,12 +62,12 @@ export function CartDrawer() {
                         <div className="flex flex-1 flex-col">
                           <div className="flex justify-between">
                             <span className="font-display text-lg text-forest-deep">
-                              {product.name}
+                              {line.name}
                             </span>
                             <span className="text-body">
                               {formatPrice(
-                                product.price * line.quantity,
-                                product.currency
+                                line.price * line.quantity,
+                                line.currency
                               )}
                             </span>
                           </div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
-import { articles } from "@/lib/data";
+import { getArticles } from "@/lib/queries";
 import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -11,7 +11,11 @@ export const metadata: Metadata = {
   description: "Natural wellness, gently explained. Education from Rudransh.",
 };
 
-export default function JournalPage() {
+export const dynamic = "force-dynamic";
+
+export default async function JournalPage() {
+  const articles = await getArticles();
+
   return (
     <div className="section pt-40 bg-warmwhite">
       <div className="container-luxe">

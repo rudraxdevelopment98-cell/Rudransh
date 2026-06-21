@@ -29,7 +29,7 @@ export default function AccountPage() {
         <SectionHeading
           label="Account"
           title="Your wellness, managed."
-          intro="Sign in to manage orders and subscriptions. Authentication connects to Shopify customer accounts."
+          intro="Order tracking by order number is available now. Full customer accounts are coming soon."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
@@ -45,15 +45,15 @@ export default function AccountPage() {
 
         <div className="mt-12 flex flex-wrap gap-4">
           <button className="btn-primary" disabled>
-            Sign in
+            Sign in (coming soon)
           </button>
           <Link href="/products" className="btn-secondary">
             Continue shopping
           </Link>
         </div>
         <p className="mt-6 text-xs text-ink/50">
-          Customer accounts activate once the Shopify Storefront API is
-          connected.
+          Just placed an order? You were given an order number you can
+          bookmark at <code>/order/[orderNumber]</code> to check its status.
         </p>
       </div>
     </div>

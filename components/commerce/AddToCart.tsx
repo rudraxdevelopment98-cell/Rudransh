@@ -55,7 +55,18 @@ export function AddToCart({ product }: { product: Product }) {
       )}
 
       <button
-        onClick={() => add(product.slug, { subscription: subscribe })}
+        onClick={() =>
+          add(
+            {
+              slug: product.slug,
+              name: product.name,
+              price: product.price,
+              currency: product.currency,
+              image: product.images[0],
+            },
+            { subscription: subscribe }
+          )
+        }
         className="btn-primary w-full"
       >
         Add to cart
