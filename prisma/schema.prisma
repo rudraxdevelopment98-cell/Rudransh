@@ -1,12 +1,13 @@
-// Rudransh Wellness — owned data model. SQLite for zero-dependency local dev;
-// swap `provider` to "postgresql" and the DATABASE_URL to scale later.
+// Rudransh Wellness — owned data model.
+// Postgres in production (Vercel / Neon / Supabase). For purely local dev you
+// can temporarily switch provider back to "sqlite" with DATABASE_URL="file:./dev.db".
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
