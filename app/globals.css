@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Cormorant Garamond";
+    --font-body: "Inter";
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Never pure white — warm white is the default ground */
+    background-color: theme("colors.warmwhite");
+    color: theme("colors.ink");
+    font-family: theme("fontFamily.body");
+    font-size: theme("fontSize.body[0]");
+  }
+
+  ::selection {
+    background-color: theme("colors.gold");
+    color: theme("colors.forest.deep");
+  }
+}
+
+@layer components {
+  .container-luxe {
+    @apply mx-auto w-full max-w-container px-gutter;
+  }
+
+  .section {
+    @apply py-section;
+  }
+
+  /* Uppercase editorial label */
+  .label {
+    @apply font-body text-caption uppercase tracking-label text-clay;
+  }
+
+  /* Buttons — quiet, no shadows, never colour-flip */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-sharp px-8 py-4 font-body text-caption uppercase tracking-button transition-all duration-500 ease-editorial;
+  }
+
+  .btn-primary {
+    @apply btn bg-forest-deep text-bone;
+    border: 1px solid theme("colors.forest.deep");
+  }
+  .btn-primary:hover {
+    border-color: theme("colors.gold");
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent text-ink;
+    border: 1px solid theme("colors.ink");
+  }
+  .btn-secondary:hover {
+    border-color: theme("colors.gold");
+    color: theme("colors.umber");
+  }
+
+  /* Hairline rule */
+  .rule-gold {
+    @apply h-px w-12 bg-gold;
+  }
+}
