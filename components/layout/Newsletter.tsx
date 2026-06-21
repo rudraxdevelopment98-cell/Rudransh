@@ -29,18 +29,18 @@ export function Newsletter() {
         Join the ritual
       </label>
       {done ? (
-        <p className="mt-3 text-sm text-bone/80">
+        <p className="mt-3 text-sm text-paper/80">
           Thank you — welcome to Rudransh.
         </p>
       ) : (
-        <div className="mt-3 flex border-b border-bone/30 focus-within:border-gold">
+        <div className="mt-3 flex border-b border-paper/30 focus-within:border-gold">
           <input
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
-            className="w-full bg-transparent py-2 text-bone placeholder:text-bone/40 focus:outline-none"
+            className="w-full bg-transparent py-2 text-paper placeholder:text-paper/40 focus:outline-none"
           />
           <button
             type="submit"

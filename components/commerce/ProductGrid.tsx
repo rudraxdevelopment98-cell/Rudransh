@@ -30,7 +30,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
             onClick={() => setFilter(f.value)}
             className={`text-caption uppercase tracking-button transition-colors ${
               filter === f.value
-                ? "text-forest-deep"
+                ? "text-ink"
                 : "text-ink/40 hover:text-ink"
             }`}
           >

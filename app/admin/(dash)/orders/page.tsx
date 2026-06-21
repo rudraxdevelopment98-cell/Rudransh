@@ -12,7 +12,7 @@ export default async function AdminOrdersPage() {
 
   return (
     <div>
-      <h1 className="font-display text-h2 text-forest-deep">Orders</h1>
+      <h1 className="font-display text-h2 text-ink">Orders</h1>
 
       {orders.length === 0 ? (
         <p className="mt-8 text-ink/50">No orders yet.</p>
@@ -22,7 +22,7 @@ export default async function AdminOrdersPage() {
             <div key={order.id} className="border border-ink/10 bg-bone p-6">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <p className="font-display text-xl text-forest-deep">
+                  <p className="font-display text-xl text-ink">
                     {order.orderNumber}
                   </p>
                   <p className="mt-1 text-sm text-ink/60">
@@ -40,7 +40,7 @@ export default async function AdminOrdersPage() {
                   )}
                 </div>
                 <div className="text-right">
-                  <p className="font-display text-xl text-forest-deep">
+                  <p className="font-display text-xl text-ink">
                     {formatPrice(order.total, order.currency)}
                   </p>
                   <p className="text-xs text-ink/50">

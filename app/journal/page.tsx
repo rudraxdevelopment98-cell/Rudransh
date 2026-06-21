@@ -38,7 +38,7 @@ export default async function JournalPage() {
                   />
                 </div>
                 <p className="label mt-5">{formatDate(article.publishedAt)}</p>
-                <h2 className="mt-2 font-display text-2xl text-forest-deep">
+                <h2 className="mt-2 font-display text-2xl text-ink">
                   {article.title}
                 </h2>
                 <p className="mt-2 text-ink/60">{article.excerpt}</p>

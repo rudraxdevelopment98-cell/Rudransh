@@ -38,7 +38,7 @@ export function ProductCard({ product }: { product: Product }) {
         {product.goalTags[0] && (
           <span className="label">{GOAL_LABEL[product.goalTags[0]]}</span>
         )}
-        <h3 className="mt-2 font-display text-2xl text-forest-deep">
+        <h3 className="mt-2 font-display text-2xl text-ink">
           {product.name}
         </h3>
         <p className="mt-1 text-ink/60">

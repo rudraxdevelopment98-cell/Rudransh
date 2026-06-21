@@ -19,8 +19,8 @@ export function GoalTile({ goal }: { goal: Goal }) {
           <p className="text-caption uppercase tracking-label text-gold">
             {goal.tagline}
           </p>
-          <h3 className="mt-2 font-display text-3xl text-bone">{goal.name}</h3>
-          <span className="mt-3 inline-block text-caption uppercase tracking-button text-bone/80 transition-colors group-hover:text-gold">
+          <h3 className="mt-2 font-display text-3xl text-paper">{goal.name}</h3>
+          <span className="mt-3 inline-block text-caption uppercase tracking-button text-paper/80 transition-colors group-hover:text-gold">
             Explore →
           </span>
         </div>

@@ -33,7 +33,7 @@ export default function AboutPage() {
           <p className="text-caption uppercase tracking-label text-gold">
             Our story
           </p>
-          <h1 className="mt-5 max-w-3xl font-display text-hero text-bone">
+          <h1 className="mt-5 max-w-3xl font-display text-hero text-paper">
             Rooted in nature, built for today.
           </h1>
         </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div className="container-luxe grid gap-16 lg:grid-cols-2">
           <Reveal>
             <p className="label mb-5">Vision</p>
-            <h2 className="font-display text-h2 text-forest-deep">
+            <h2 className="font-display text-h2 text-ink">
               To become a trusted global wellness brand that simplifies herbal
               health for modern life.
             </h2>
@@ -76,20 +76,20 @@ export default function AboutPage() {
                 <span className="font-display text-3xl text-gold">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="text-lg text-forest-deep">{item}</p>
+                <p className="text-lg text-ink">{item}</p>
               </RevealItem>
             ))}
           </RevealGroup>
         </div>
       </section>
 
-      <section className="section bg-forest-deep text-bone">
+      <section className="section bg-forest-deep text-paper">
         <div className="container-luxe max-w-3xl">
           <p className="label mb-5 text-gold">Sourcing & ethos</p>
-          <h2 className="font-display text-h2 text-bone">
+          <h2 className="font-display text-h2 text-paper">
             Purity first. Always traceable.
           </h2>
-          <p className="mt-6 text-bone/75">
+          <p className="mt-6 text-paper/75">
             We work with growers who share our standards: single-origin herbs,
             slow processing, and nothing added. Every product carries clear
             ingredients, usage, and honest guidance — never hype, never a cure.

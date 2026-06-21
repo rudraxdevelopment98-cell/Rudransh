@@ -18,7 +18,7 @@ export default async function AdminLoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-bone">
       <div className="w-full max-w-sm px-6">
         <p className="label text-center">Rudransh</p>
-        <h1 className="mt-3 text-center font-display text-h2 text-forest-deep">
+        <h1 className="mt-3 text-center font-display text-h2 text-ink">
           Admin
         </h1>
         <div className="mt-10">

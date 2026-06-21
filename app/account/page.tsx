@@ -35,7 +35,7 @@ export default function AccountPage() {
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
           {PANELS.map((panel) => (
             <div key={panel.title} className="border border-ink/10 bg-bone p-8">
-              <h2 className="font-display text-2xl text-forest-deep">
+              <h2 className="font-display text-2xl text-ink">
                 {panel.title}
               </h2>
               <p className="mt-3 text-ink/60">{panel.detail}</p>

@@ -48,7 +48,7 @@ export default async function RitualsPage() {
                     {/* ritual overview */}
                     <div>
                       <p className="label">{ritual.timeOfDay}</p>
-                      <h2 className="mt-3 font-display text-h2 text-forest-deep">
+                      <h2 className="mt-3 font-display text-h2 text-ink">
                         {ritual.name}
                       </h2>
                       <Link
@@ -65,7 +65,7 @@ export default async function RitualsPage() {
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             <span>
-                              <span className="block font-medium text-forest-deep">
+                              <span className="block font-medium text-ink">
                                 {step.title}
                               </span>
                               <span className="text-sm text-ink/60">

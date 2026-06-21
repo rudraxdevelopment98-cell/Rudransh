@@ -27,7 +27,7 @@ export function EducationModule({ product }: { product: Product }) {
             key={tab.id}
             onClick={() => setActive(tab.id)}
             className={`relative pb-3 text-caption uppercase tracking-button transition-colors ${
-              active === tab.id ? "text-forest-deep" : "text-ink/40 hover:text-ink"
+              active === tab.id ? "text-ink" : "text-ink/40 hover:text-ink"
             }`}
           >
             {tab.label}

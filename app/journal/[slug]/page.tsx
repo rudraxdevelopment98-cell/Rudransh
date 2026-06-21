@@ -50,7 +50,7 @@ export default async function ArticlePage({
         <div className="mx-auto max-w-2xl">
           <Reveal>
             <p className="label">{formatDate(article.publishedAt)}</p>
-            <h1 className="mt-4 font-display text-h1 text-forest-deep">
+            <h1 className="mt-4 font-display text-h1 text-ink">
               {article.title}
             </h1>
           </Reveal>

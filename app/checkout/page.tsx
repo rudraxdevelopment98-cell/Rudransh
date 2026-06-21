@@ -10,7 +10,7 @@ export default function CheckoutPage() {
   return (
     <div className="section pt-40 bg-warmwhite min-h-screen">
       <div className="container-luxe">
-        <h1 className="font-display text-h1 text-forest-deep">Checkout</h1>
+        <h1 className="font-display text-h1 text-ink">Checkout</h1>
         <p className="mt-3 text-ink/60">
           A few details and your ritual is on its way.
         </p>

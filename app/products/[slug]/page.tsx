@@ -94,13 +94,13 @@ export default async function ProductPage({
                 </Link>
               ))}
             </div>
-            <h1 className="mt-5 font-display text-h1 text-forest-deep">
+            <h1 className="mt-5 font-display text-h1 text-ink">
               {product.name}
             </h1>
             <p className="mt-4 text-lg text-ink/70">
               {product.shortDescription}
             </p>
-            <p className="mt-6 font-display text-2xl text-forest-deep">
+            <p className="mt-6 font-display text-2xl text-ink">
               {formatPrice(product.price, product.currency)}
             </p>
 

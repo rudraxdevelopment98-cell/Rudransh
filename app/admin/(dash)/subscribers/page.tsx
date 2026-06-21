@@ -11,7 +11,7 @@ export default async function AdminSubscribersPage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-h2 text-forest-deep">Subscribers</h1>
+        <h1 className="font-display text-h2 text-ink">Subscribers</h1>
         <p className="text-ink/50">{subscribers.length} total</p>
       </div>
 

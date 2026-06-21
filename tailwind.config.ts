@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Design tokens mapped directly from rudransh-wellness-build-spec/v1.
- * Palette, typography scale, and spacing rhythm are authoritative here.
+ * Design tokens — ultra-modern dark editorial.
+ * Dark canvas, bold display type, electric-gold accent, soft glass surfaces.
  */
 const config: Config = {
   content: [
@@ -15,20 +15,22 @@ const config: Config = {
       colors: {
         // primary
         forest: {
-          deep: "#1F3D2B",
-          DEFAULT: "#1F3D2B",
-          moss: "#3C5A41",
+          deep: "#163C28",
+          DEFAULT: "#163C28",
+          moss: "#4F7A5A",
         },
-        // neutrals
-        bone: "#F6F1E7",
-        sand: "#E7DCC8",
-        warmwhite: "#FBF9F4",
-        ink: "#1A1A17",
-        // earth
-        clay: "#9C6B4A",
-        umber: "#6B4A33",
-        // accent — jewellery only, never large fills
-        gold: "#C9A86A",
+        // neutrals — dark canvas system
+        bone: "#15151B",
+        sand: "#1E1E26",
+        warmwhite: "#0A0A0C",
+        ink: "#F3F1EA",
+        // guaranteed-light text/border token (use on dark-green / image-overlay surfaces)
+        paper: "#FAF8F2",
+        // earth — brightened for legibility on dark
+        clay: "#E2A467",
+        umber: "#D6905F",
+        // accent — electric gold, the one bold color
+        gold: "#E8C46E",
       },
       fontFamily: {
         // High-contrast editorial serif → display

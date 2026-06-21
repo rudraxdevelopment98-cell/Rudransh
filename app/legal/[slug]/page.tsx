@@ -73,7 +73,7 @@ export default function LegalPage({
         <div className="mx-auto max-w-2xl">
           <Reveal>
             <p className="label">Legal</p>
-            <h1 className="mt-4 font-display text-h1 text-forest-deep">
+            <h1 className="mt-4 font-display text-h1 text-ink">
               {page.title}
             </h1>
           </Reveal>

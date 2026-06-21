@@ -13,7 +13,7 @@ export function SubscriptionTierCard({ tier }: { tier: SubscriptionTier }) {
     <div
       className={`flex flex-col p-8 ${
         tier.featured
-          ? "bg-forest-deep text-bone"
+          ? "bg-forest-deep text-paper"
           : "border border-ink/10 bg-bone text-ink"
       }`}
     >
@@ -22,13 +22,13 @@ export function SubscriptionTierCard({ tier }: { tier: SubscriptionTier }) {
       )}
       <h3
         className={`font-display text-2xl ${
-          tier.featured ? "text-bone" : "text-forest-deep"
+          tier.featured ? "text-paper" : "text-ink"
         }`}
       >
         {tier.name}
       </h3>
       <p
-        className={`mt-3 ${tier.featured ? "text-bone/70" : "text-ink/70"}`}
+        className={`mt-3 ${tier.featured ? "text-paper/70" : "text-ink/70"}`}
       >
         {tier.description}
       </p>
@@ -37,7 +37,7 @@ export function SubscriptionTierCard({ tier }: { tier: SubscriptionTier }) {
         {formatPrice(tier.pricePerMonth, tier.currency)}
         <span
           className={`ml-1 text-base ${
-            tier.featured ? "text-bone/60" : "text-ink/50"
+            tier.featured ? "text-paper/60" : "text-ink/50"
           }`}
         >
           / month
@@ -56,7 +56,7 @@ export function SubscriptionTierCard({ tier }: { tier: SubscriptionTier }) {
       <div className="mt-8">
         <label
           className={`text-caption uppercase tracking-label ${
-            tier.featured ? "text-bone/60" : "text-ink/50"
+            tier.featured ? "text-paper/60" : "text-ink/50"
           }`}
         >
           Delivery cadence
@@ -70,7 +70,7 @@ export function SubscriptionTierCard({ tier }: { tier: SubscriptionTier }) {
                 cadence === opt
                   ? "border-gold text-gold"
                   : tier.featured
-                  ? "border-bone/30 text-bone/70"
+                  ? "border-paper/30 text-paper/70"
                   : "border-ink/20 text-ink/60"
               }`}
             >
@@ -83,7 +83,7 @@ export function SubscriptionTierCard({ tier }: { tier: SubscriptionTier }) {
       <button
         onClick={open}
         className={`mt-8 w-full ${
-          tier.featured ? "btn-secondary border-gold text-bone" : "btn-primary"
+          tier.featured ? "btn-secondary border-gold text-paper" : "btn-primary"
         }`}
       >
         Choose {tier.name.replace("The ", "")}

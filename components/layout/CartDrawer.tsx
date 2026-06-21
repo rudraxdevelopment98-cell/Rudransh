@@ -31,7 +31,7 @@ export function CartDrawer() {
             aria-label="Cart"
           >
             <div className="flex items-center justify-between border-b border-ink/10 px-8 py-6">
-              <h2 className="font-display text-h2 text-forest-deep">Cart</h2>
+              <h2 className="font-display text-h2 text-ink">Cart</h2>
               <button
                 onClick={close}
                 className="text-caption uppercase tracking-button hover:text-gold"
@@ -61,7 +61,7 @@ export function CartDrawer() {
                         </div>
                         <div className="flex flex-1 flex-col">
                           <div className="flex justify-between">
-                            <span className="font-display text-lg text-forest-deep">
+                            <span className="font-display text-lg text-ink">
                               {line.name}
                             </span>
                             <span className="text-body">
@@ -116,7 +116,7 @@ export function CartDrawer() {
             <div className="border-t border-ink/10 px-8 py-6">
               <div className="mb-5 flex justify-between text-body">
                 <span className="label">Subtotal</span>
-                <span className="font-display text-xl text-forest-deep">
+                <span className="font-display text-xl text-ink">
                   {formatPrice(subtotal)}
                 </span>
               </div>

@@ -29,7 +29,7 @@ export function Hero() {
           Premium herbal wellness
         </motion.p>
         <motion.h1
-          className="mt-6 max-w-4xl font-display text-hero text-bone"
+          className="mt-6 max-w-4xl font-display text-hero text-paper"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
@@ -37,7 +37,7 @@ export function Hero() {
           Ancient herbs. Modern life.
         </motion.h1>
         <motion.p
-          className="mt-6 max-w-xl text-lg text-bone/80"
+          className="mt-6 max-w-xl text-lg text-paper/80"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
@@ -51,7 +51,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
         >
-          <ButtonLink href="/#goals" variant="secondary" className="border-bone text-bone">
+          <ButtonLink href="/#goals" variant="secondary" className="border-paper text-paper">
             Shop by goal
           </ButtonLink>
         </motion.div>

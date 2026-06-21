@@ -21,7 +21,7 @@ export function SectionHeading({
           {label}
         </p>
       )}
-      <h2 className="font-display text-h2 text-forest-deep">{title}</h2>
+      <h2 className="font-display text-h2 text-ink">{title}</h2>
       {intro && <p className="mt-5 text-ink/70">{intro}</p>}
     </Reveal>
   );

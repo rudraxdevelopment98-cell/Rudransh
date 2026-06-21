@@ -13,7 +13,7 @@ export default async function AdminProductsPage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-h2 text-forest-deep">Products</h1>
+        <h1 className="font-display text-h2 text-ink">Products</h1>
         <Link href="/admin/products/new" className="btn-primary">
           New product
         </Link>
@@ -34,7 +34,7 @@ export default async function AdminProductsPage() {
           <tbody>
             {products.map((p) => (
               <tr key={p.id} className="border-b border-ink/5">
-                <td className="px-5 py-3 font-medium text-forest-deep">
+                <td className="px-5 py-3 font-medium text-ink">
                   {p.name}
                   {p.featured && (
                     <span className="ml-2 text-xs text-gold">★ featured</span>
@@ -45,7 +45,7 @@ export default async function AdminProductsPage() {
                 <td className="px-5 py-3">{p.stock}</td>
                 <td className="px-5 py-3">
                   {p.active ? (
-                    <span className="text-forest-deep">Active</span>
+                    <span className="text-ink">Active</span>
                   ) : (
                     <span className="text-ink/40">Hidden</span>
                   )}

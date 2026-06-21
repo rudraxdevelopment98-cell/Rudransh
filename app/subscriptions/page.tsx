@@ -49,7 +49,7 @@ export default function SubscriptionsPage() {
             {STEPS.map((step) => (
               <RevealItem key={step.n}>
                 <span className="font-display text-4xl text-gold">{step.n}</span>
-                <h3 className="mt-4 font-display text-2xl text-forest-deep">
+                <h3 className="mt-4 font-display text-2xl text-ink">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-ink/60">{step.detail}</p>

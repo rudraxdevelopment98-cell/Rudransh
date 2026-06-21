@@ -56,8 +56,8 @@ export default async function GoalPage({
           <p className="text-caption uppercase tracking-label text-gold">
             Shop by Goal
           </p>
-          <h1 className="mt-5 font-display text-hero text-bone">{goal.name}</h1>
-          <p className="mt-5 max-w-xl text-lg text-bone/80">{goal.intro}</p>
+          <h1 className="mt-5 font-display text-hero text-paper">{goal.name}</h1>
+          <p className="mt-5 max-w-xl text-lg text-paper/80">{goal.intro}</p>
         </div>
       </section>
 
@@ -68,7 +68,7 @@ export default async function GoalPage({
           <RevealGroup className="mt-10 flex flex-wrap gap-4">
             {goal.herbs.map((herb) => (
               <RevealItem key={herb}>
-                <span className="border border-ink/15 px-6 py-3 font-display text-xl text-forest-deep">
+                <span className="border border-ink/15 px-6 py-3 font-display text-xl text-ink">
                   {herb}
                 </span>
               </RevealItem>

@@ -5,7 +5,7 @@ export default function NotFound() {
     <div className="flex min-h-screen items-center justify-center bg-warmwhite">
       <div className="container-luxe text-center">
         <p className="label">404</p>
-        <h1 className="mt-4 font-display text-h1 text-forest-deep">
+        <h1 className="mt-4 font-display text-h1 text-ink">
           This page has gone quiet.
         </h1>
         <p className="mx-auto mt-4 max-w-md text-ink/60">

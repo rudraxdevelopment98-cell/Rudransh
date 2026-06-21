@@ -11,7 +11,7 @@ export default function CartPage() {
   return (
     <div className="section pt-40 bg-warmwhite min-h-screen">
       <div className="container-luxe">
-        <h1 className="font-display text-h1 text-forest-deep">Cart</h1>
+        <h1 className="font-display text-h1 text-ink">Cart</h1>
 
         {lines.length === 0 ? (
           <div className="mt-12">
@@ -40,7 +40,7 @@ export default function CartPage() {
                       <div className="flex justify-between gap-4">
                         <Link
                           href={`/products/${line.productSlug}`}
-                          className="font-display text-2xl text-forest-deep hover:text-clay"
+                          className="font-display text-2xl text-ink hover:text-clay"
                         >
                           {line.name}
                         </Link>
@@ -93,7 +93,7 @@ export default function CartPage() {
 
             {/* summary */}
             <aside className="h-fit border border-ink/10 bg-bone p-8">
-              <h2 className="font-display text-2xl text-forest-deep">Summary</h2>
+              <h2 className="font-display text-2xl text-ink">Summary</h2>
               <div className="mt-6 flex justify-between text-body">
                 <span className="text-ink/60">Subtotal</span>
                 <span>{formatPrice(subtotal)}</span>
@@ -102,7 +102,7 @@ export default function CartPage() {
                 <span className="text-ink/60">Shipping</span>
                 <span className="text-ink/50">Calculated at checkout</span>
               </div>
-              <div className="mt-6 flex justify-between border-t border-ink/10 pt-6 font-display text-xl text-forest-deep">
+              <div className="mt-6 flex justify-between border-t border-ink/10 pt-6 font-display text-xl text-ink">
                 <span>Total</span>
                 <span>{formatPrice(subtotal)}</span>
               </div>

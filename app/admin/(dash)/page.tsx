@@ -6,9 +6,9 @@ export const dynamic = "force-dynamic";
 
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-sand text-umber",
-  confirmed: "bg-forest-moss/20 text-forest-deep",
-  shipped: "bg-forest-moss/20 text-forest-deep",
-  delivered: "bg-forest-deep text-bone",
+  confirmed: "bg-forest-moss/20 text-ink",
+  shipped: "bg-forest-moss/20 text-ink",
+  delivered: "bg-forest-deep text-paper",
   cancelled: "bg-ink/10 text-ink/50",
 };
 
@@ -40,13 +40,13 @@ export default async function AdminDashboard() {
 
   return (
     <div>
-      <h1 className="font-display text-h2 text-forest-deep">Dashboard</h1>
+      <h1 className="font-display text-h2 text-ink">Dashboard</h1>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {stats.map((s) => (
           <div key={s.label} className="border border-ink/10 bg-bone p-6">
             <p className="label">{s.label}</p>
-            <p className="mt-2 font-display text-3xl text-forest-deep">
+            <p className="mt-2 font-display text-3xl text-ink">
               {s.value}
             </p>
           </div>
@@ -54,7 +54,7 @@ export default async function AdminDashboard() {
       </div>
 
       <div className="mt-12 flex items-center justify-between">
-        <h2 className="font-display text-2xl text-forest-deep">Recent orders</h2>
+        <h2 className="font-display text-2xl text-ink">Recent orders</h2>
         <Link
           href="/admin/orders"
           className="text-caption uppercase tracking-button text-clay hover:text-gold"
@@ -81,7 +81,7 @@ export default async function AdminDashboard() {
             <tbody>
               {recent.map((order) => (
                 <tr key={order.id} className="border-b border-ink/5">
-                  <td className="px-5 py-3 font-medium text-forest-deep">
+                  <td className="px-5 py-3 font-medium text-ink">
                     {order.orderNumber}
                   </td>
                   <td className="px-5 py-3">{order.customerName}</td>

@@ -45,7 +45,7 @@ export function Nav() {
               key={link.href}
               href={link.href}
               className={`text-caption uppercase tracking-button transition-colors hover:text-gold ${
-                solid ? "text-ink" : "text-bone"
+                solid ? "text-ink" : "text-paper"
               }`}
             >
               {link.label}
@@ -57,7 +57,7 @@ export function Nav() {
         <Link
           href="/"
           className={`font-display text-2xl tracking-wide transition-colors md:flex-1 md:text-center ${
-            solid ? "text-forest-deep" : "text-bone"
+            solid ? "text-ink" : "text-paper"
           }`}
         >
           Rudransh
@@ -69,7 +69,7 @@ export function Nav() {
             onClick={open}
             aria-label="Open cart"
             className={`text-caption uppercase tracking-button transition-colors hover:text-gold ${
-              solid ? "text-ink" : "text-bone"
+              solid ? "text-ink" : "text-paper"
             }`}
           >
             Cart ({count})
@@ -77,7 +77,7 @@ export function Nav() {
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
-            className={`md:hidden ${solid ? "text-ink" : "text-bone"}`}
+            className={`md:hidden ${solid ? "text-ink" : "text-paper"}`}
           >
             <span className="text-caption uppercase tracking-button">
               {menuOpen ? "Close" : "Menu"}

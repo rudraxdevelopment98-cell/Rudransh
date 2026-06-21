@@ -53,7 +53,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-forest-deep text-bone;
+    @apply btn bg-forest-deep text-paper;
     border: 1px solid theme("colors.forest.deep");
   }
   .btn-primary:hover:not(:disabled) {

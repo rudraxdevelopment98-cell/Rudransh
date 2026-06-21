@@ -70,7 +70,7 @@ export default async function HomePage() {
               <span className="rule-gold" aria-hidden />
               Our philosophy
             </p>
-            <h2 className="font-display text-h2 text-forest-deep">
+            <h2 className="font-display text-h2 text-ink">
               Traditional herbal knowledge, made simple for modern life.
             </h2>
             <p className="mt-6 text-ink/70">
@@ -90,12 +90,12 @@ export default async function HomePage() {
 
       {/* Featured product — cinematic single showcase */}
       {featured && (
-      <section className="section bg-forest-deep text-bone">
+      <section className="section bg-forest-deep text-paper">
         <div className="container-luxe grid items-center gap-16 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
             <p className="label mb-5 text-gold">Featured</p>
-            <h2 className="font-display text-h1 text-bone">{featured.name}</h2>
-            <p className="mt-6 max-w-md text-bone/75">
+            <h2 className="font-display text-h1 text-paper">{featured.name}</h2>
+            <p className="mt-6 max-w-md text-paper/75">
               {featured.shortDescription}
             </p>
             <p className="mt-6 font-display text-2xl">
@@ -105,7 +105,7 @@ export default async function HomePage() {
               <ButtonLink
                 href={`/products/${featured.slug}`}
                 variant="secondary"
-                className="border-gold text-bone"
+                className="border-gold text-paper"
               >
                 Discover {featured.name}
               </ButtonLink>
@@ -141,10 +141,10 @@ export default async function HomePage() {
             <div className="relative grid gap-8 p-12 lg:grid-cols-2 lg:items-center lg:p-20">
               <Reveal>
                 <p className="label mb-5 text-gold">The monthly ritual</p>
-                <h2 className="font-display text-h2 text-bone">
+                <h2 className="font-display text-h2 text-paper">
                   A curated kit, delivered to your door.
                 </h2>
-                <p className="mt-5 max-w-md text-bone/80">
+                <p className="mt-5 max-w-md text-paper/80">
                   Build a routine around your goal. Pause, skip, or change
                   cadence anytime — wellness on your terms.
                 </p>
@@ -153,7 +153,7 @@ export default async function HomePage() {
                 <ButtonLink
                   href="/subscriptions"
                   variant="secondary"
-                  className="border-bone text-bone"
+                  className="border-paper text-paper"
                 >
                   Explore subscriptions
                 </ButtonLink>
@@ -209,7 +209,7 @@ export default async function HomePage() {
                     />
                   </div>
                   <p className="label mt-5">{formatDate(article.publishedAt)}</p>
-                  <h3 className="mt-2 font-display text-2xl text-forest-deep">
+                  <h3 className="mt-2 font-display text-2xl text-ink">
                     {article.title}
                   </h3>
                   <p className="mt-2 text-ink/60">{article.excerpt}</p>
@@ -221,13 +221,13 @@ export default async function HomePage() {
       </section>
 
       {/* Trust band */}
-      <section className="bg-forest-deep py-20 text-bone">
+      <section className="bg-forest-deep py-20 text-paper">
         <div className="container-luxe grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {TRUST.map((item) => (
             <div key={item.title}>
               <span className="rule-gold mb-5 block" aria-hidden />
-              <h3 className="font-display text-xl text-bone">{item.title}</h3>
-              <p className="mt-2 text-sm text-bone/70">{item.detail}</p>
+              <h3 className="font-display text-xl text-paper">{item.title}</h3>
+              <p className="mt-2 text-sm text-paper/70">{item.detail}</p>
             </div>
           ))}
         </div>

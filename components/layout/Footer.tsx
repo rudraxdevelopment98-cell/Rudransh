@@ -33,13 +33,13 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="bg-forest-deep text-bone">
+    <footer className="bg-forest-deep text-paper">
       <div className="container-luxe py-section">
         <div className="grid gap-16 lg:grid-cols-2">
           {/* newsletter */}
           <div className="max-w-md">
             <p className="font-display text-h2">Rudransh</p>
-            <p className="mt-4 text-bone/70">
+            <p className="mt-4 text-paper/70">
               Ancient herbs. Modern life. Quiet, considered wellness — delivered
               as a ritual, not a transaction.
             </p>
@@ -58,7 +58,7 @@ export function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-bone/80 transition-colors hover:text-gold"
+                        className="text-sm text-paper/80 transition-colors hover:text-gold"
                       >
                         {link.label}
                       </Link>
@@ -70,7 +70,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-bone/15 pt-8 text-xs text-bone/50">
+        <div className="mt-16 border-t border-paper/15 pt-8 text-xs text-paper/50">
           <p className="max-w-3xl">
             These statements have not been evaluated by any medical authority.
             Our products are not intended to diagnose, treat, cure, or prevent

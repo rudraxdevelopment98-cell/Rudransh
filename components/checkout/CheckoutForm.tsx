@@ -80,7 +80,7 @@ export function CheckoutForm() {
     <form onSubmit={onSubmit} className="grid gap-16 lg:grid-cols-[3fr_2fr]">
       {/* details */}
       <div>
-        <h2 className="font-display text-2xl text-forest-deep">
+        <h2 className="font-display text-2xl text-ink">
           Delivery details
         </h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -122,7 +122,7 @@ export function CheckoutForm() {
 
       {/* summary */}
       <aside className="h-fit border border-ink/10 bg-bone p-8">
-        <h2 className="font-display text-2xl text-forest-deep">Your order</h2>
+        <h2 className="font-display text-2xl text-ink">Your order</h2>
         <ul className="mt-6 divide-y divide-ink/10">
           {lines.map((line) => (
             <li key={line.productSlug} className="flex gap-4 py-4">
@@ -137,7 +137,7 @@ export function CheckoutForm() {
               </div>
               <div className="flex flex-1 justify-between">
                 <span>
-                  <span className="block font-display text-lg text-forest-deep">
+                  <span className="block font-display text-lg text-ink">
                     {line.name}
                   </span>
                   <span className="text-sm text-ink/50">
@@ -163,7 +163,7 @@ export function CheckoutForm() {
             <span>{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
           </div>
         </div>
-        <div className="mt-4 flex justify-between border-t border-ink/10 pt-4 font-display text-xl text-forest-deep">
+        <div className="mt-4 flex justify-between border-t border-ink/10 pt-4 font-display text-xl text-ink">
           <span>Total</span>
           <span>{formatPrice(total)}</span>
         </div>

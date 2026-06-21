@@ -25,7 +25,7 @@ export default async function AdminLayout({
       <header className="border-b border-ink/10 bg-bone">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-8">
-            <Link href="/admin" className="font-display text-xl text-forest-deep">
+            <Link href="/admin" className="font-display text-xl text-ink">
               Rudransh · Admin
             </Link>
             <nav className="hidden gap-6 md:flex">
